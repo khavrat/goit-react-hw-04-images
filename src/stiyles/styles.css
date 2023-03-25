@@ -181,19 +181,7 @@
     font-size: 24px;
     color: #1f1d1c;
     background-color: #5c919c;
-    /* animation-name: slideInError;
-    animation-duration: 1000ms;
-    animation-delay: 2000ms;
-    animation-fill-mode: forwards; */
 }
-/* @keyframes slideInError {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-200%);
-  }
-} */
 
 
 
@@ -245,28 +233,28 @@
 }
 
 /* Notification Empty */
-.NtMessageEmpty {
-  /* position:absolute;
+/* .NtMessageEmpty {
+  position:absolute;
   top: 0px;
   right: 0;
-  width: 100%; */
-    /* display: flex;
+  width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; */
-    /* height: 350px; */
+    align-items: center;
+    height: 350px;
     font-family: 'Fira Sens';
     font-weight: 700;
     font-size: 20px;
     color: #1f1d1c;
     background-color: #5c919c;
-    /* animation-name: slideInEmpty;
+    animation-name: slideInEmpty;
     animation-duration: 1000ms;
     animation-delay: 2000ms;
-    animation-fill-mode: forwards; */
+    animation-fill-mode: forwards;
 }
 
-/* @keyframes slideInEmpty {
+@keyframes slideInEmpty {
   from {
     transform: translateY(0);
   }

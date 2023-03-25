@@ -4,7 +4,6 @@ import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Batton';
 import NotificationView from './NotificationView/NotificationView';
-import NotificationViewEmpty from './NotificationView/NotificationViewEmpty';
 import Modal from './Modal/Modal';
 
 function App() {
@@ -32,11 +31,9 @@ function App() {
 
   const getResponseData = response => {
     setResponse(response);
-    console.log('response in app :>> ', response);
   };
 
   const handleImageClick = selectedImage => {
-    console.log('selectedImage :>> ', selectedImage);
     setSelectedImage(selectedImage);
   };
 
@@ -46,16 +43,6 @@ function App() {
 
   return (
     <>
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          duration: 3000,
-          style: {
-            background: '#363636',
-            color: '#fff',
-          },
-        }}
-      />
       <Searchbar onSubmit={handelSearchSubmit} />
       <ImageGallery
         getResponseData={getResponseData}
@@ -88,6 +75,17 @@ function App() {
           />
         </Modal>
       )}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#5c919c',
+            color: '#1f1d1c',
+            fontSize: "18px",
+          },
+        }}
+      />
     </>
   );
 }

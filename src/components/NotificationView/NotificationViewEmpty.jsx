@@ -1,18 +1,7 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import messageImg from 'Images/messageImg.png';
 
-function NotificationViewEmpty(searchField, children) {
-  const [isVisibleNtEmpty, setIsVisibleNtEmpty] = useState(false);
-
-  useEffect(() => {
-    setIsVisibleNtEmpty(false);
-
-    if (searchField === '') {
-      setIsVisibleNtEmpty(true);
-    }
-  }, [searchField]);
-
+function NotificationViewEmpty(isVisibleNtEmpty) {
   return (
     <>
       {isVisibleNtEmpty && (
@@ -21,7 +10,6 @@ function NotificationViewEmpty(searchField, children) {
           role="alert"
         >
           <img src={messageImg} width="200" alt="notification message" />
-          {children}
         </div>
       )}
     </>
@@ -29,7 +17,7 @@ function NotificationViewEmpty(searchField, children) {
 }
 
 NotificationViewEmpty.propTypes = {
-  children: PropTypes.node.isRequired,
+  isVisibleNtEmpty: PropTypes.bule.isRequired,
 };
 
 export default NotificationViewEmpty;

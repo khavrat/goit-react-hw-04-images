@@ -15,7 +15,6 @@ function NotificationView({ response, currentPage, isError, children }) {
           (response.hits.length === 0 && isError === '') ||
           (currentPage * perPage >= response.totalHits && isError === '')
         ) {
-          console.log('if true');
           setIsVisible(true);
         }
       };

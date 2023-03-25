@@ -2,24 +2,27 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import CustomIcon from '../../servises/castomIcon';
 
 function Searchbar({ onSubmit }) {
   const [searchField, setSearchField] = useState('');
 
   const handleChange = e => {
     const normalizeValue = e.currentTarget.value.toLowerCase();
-    setSearchField(normalizeValue);
+    setSearchField(normalizeValue)
   };
 
   const reset = () => {
-    setSearchField('');
+    setSearchField('')
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
     if (!searchField.trim()) {
-      toast.error('Enter a word to search for');
+      toast.success('Enter a word to search for', {
+        icon: <CustomIcon />,
+      });
     } else {
       onSubmit(searchField);
     }
@@ -39,7 +42,7 @@ function Searchbar({ onSubmit }) {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos..."
+          placeholder="Search photos..."
           name="searchField"
           value={searchField}
           onChange={handleChange}
@@ -49,8 +52,9 @@ function Searchbar({ onSubmit }) {
   );
 }
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+  Searchbar.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
 
 export default Searchbar;

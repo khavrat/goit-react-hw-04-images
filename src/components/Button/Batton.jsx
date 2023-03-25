@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { perPage } from '../../servises/getImages';
 
-function Button({
-  children,
-  response,
-  currentPage,
-  handleLoadMoreClick,
-}) {
+function Button({ children, response, currentPage, handleLoadMoreClick }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

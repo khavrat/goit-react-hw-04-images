@@ -7,18 +7,18 @@ const modalRoot = document.querySelector('#modal-root');
 function Modal({ closeModal, children }) {
   useEffect(() => {
     document.body.classList.add('no-scroll');
-    return document.body.classList.remove('no-scroll');
+    return ()=> document.body.classList.remove('no-scroll');
   }, []);
 
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
+        console.log('ESC :>> ');
         closeModal();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
-    return window.removeEventListener('keydown', handleKeyDown);
+    return ()=>window.removeEventListener('keydown', handleKeyDown);
   }, [closeModal]);
 
 

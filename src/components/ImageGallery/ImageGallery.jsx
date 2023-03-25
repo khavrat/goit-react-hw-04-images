@@ -18,7 +18,7 @@ function ImageGallery({
   const [error, setError] = useState('');
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       if (searchField === '') {
         return;
       } else {
@@ -30,13 +30,10 @@ function ImageGallery({
 
           if (data.hits.length === 0) {
             throw new Error(`On "${searchField}" found nothing, try again`);
-          } else if (currentPage > 1) {
-            setImages(prevState => [...prevState, ...data.hits]);
-            setLoading(false);
-            setError('');
-            handleIsError(error);
           } else {
-            setImages(data.hits);
+            setImages(prevState =>
+              currentPage > 1 ? [...prevState, ...data.hits] : data.hits
+            );
             setLoading(false);
             setError('');
             handleIsError(error);
@@ -47,8 +44,9 @@ function ImageGallery({
           handleIsError(error);
         }
       }
-    }
+    };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchField, currentPage]);
 
   const handleImageClick = e => {

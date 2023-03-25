@@ -39,6 +39,7 @@ function App() {
 
   const handelSearchSubmit = searchField => {
     setSearchField(searchField);
+    setCurrentPage(1);
   };
 
   return (
